@@ -11,15 +11,23 @@
 # loop
     # rarity 1
         data modify storage api: Registry set from storage asset:artifact RarityRegistry[1]
-        execute if function overcursed:artifact/to_curse/core/get_rarity/loop run return 1
+        data modify storage api: Result set value false 
+        function overcursed:artifact/to_curse/core/get_rarity/loop
+        execute if data storage api: {Result: 1b} run return 1
     # rarity 2
         data modify storage api: Registry set from storage asset:artifact RarityRegistry[2]
-        execute if function overcursed:artifact/to_curse/core/get_rarity/loop run return 2
+        data modify storage api: Result set value false 
+        function overcursed:artifact/to_curse/core/get_rarity/loop
+        execute if data storage api: {Result: 1b} run return 2
     # rarity 3
         data modify storage api: Registry set from storage asset:artifact RarityRegistry[3]
-        execute if function overcursed:artifact/to_curse/core/get_rarity/loop run return 3
+        data modify storage api: Result set value false 
+        function overcursed:artifact/to_curse/core/get_rarity/loop
+        execute if data storage api: {Result: 1b} run return 3
     # rarity 4
         data modify storage api: Registry set from storage asset:artifact RarityRegistry[4]
-        execute if function overcursed:artifact/to_curse/core/get_rarity/loop run return 4
+        data modify storage api: Result set value false 
+        function overcursed:artifact/to_curse/core/get_rarity/loop
+        execute if data storage api: {Result: 1b} run return 4
     # no rarity
         return 0

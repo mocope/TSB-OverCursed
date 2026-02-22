@@ -5,11 +5,16 @@
 #   storage api: 
 #       Argument.Id : number
 #       Registry : number[]
-# @within function overcursed:artifact/to_curse/core/get_rarity/
+# @output
+#   storage api: Result : boolean
+# @within function 
+#   overcursed:artifact/to_curse/core/get_rarity/
+#   overcursed:artifact/to_curse/core/get_rarity/loop
 
 # Fetch
     data modify storage api: Fetch set from storage api: Argument.Id
     execute store success storage api: FetchResult byte 1 run data modify storage api: Fetch set from storage api: Registry[-1]
+    execute if data storage api: {FetchResult: 1b} run data modify storage api: Result set value true
     execute if data storage api: {FetchResult: 1b} run return 1
 
 # loop

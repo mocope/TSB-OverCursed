@@ -14,4 +14,4 @@
     execute if data storage api: Argument{Cursed: 1b} unless data storage api: Argument.CurseValue run tellraw @a [{"storage":"global","nbt":"Prefix.ERROR"},{"text":"引数が足りません","color":"white"},{"text":" CurseValue","color":"red"}]
 
 # run
-    function overcursed:artifact/to_curse/core/
+    return run function overcursed:artifact/to_curse/core/
