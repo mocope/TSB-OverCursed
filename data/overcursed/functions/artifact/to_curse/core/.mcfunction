@@ -1,13 +1,19 @@
 #> overcursed:artifact/to_curse/core/
 #
 # 
-#
+# @output
+#   return : boolean
 # @within function overcursed:artifact/to_curse/
 
 # get_rarity
     execute store result storage api: Rarity int 1 run function overcursed:artifact/to_curse/core/get_rarity/
 
-# rarityがなければ失敗
+# reset
+    data remove storage api: Registry
+    data remove storage api: Fetch
+    data remove storage api: FetchResult
+
+# シャード産でなければ失敗
     execute if data storage api {Rarity: 0} run return fail
 
 # curse量を計算
@@ -23,6 +29,11 @@
 
 # プレイヤーに与える
     scoreboard players operation @s OC.Curse += $Curse Temporary
+
+# reset
+    scoreboard players reset $Curse Temporary
+    scoreboard players reset $CurseValue Temporary
+    data remove storage api: Rarity
 
 # 成功判定を返す
     return 1

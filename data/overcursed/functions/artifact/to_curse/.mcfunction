@@ -6,6 +6,8 @@
 #       Argument.Id : number
 #       Argument.Cursed : boolean = true
 #       Argument.CurseValue? : number
+# @output
+#   return : boolean
 # @api
 
 # 引数チェック
