@@ -1,5 +1,6 @@
 {
     "values": [
-        "overcursed:load/"
+        "overcursed:load/",
+        "ui_manager:load/"
     ]
 }
