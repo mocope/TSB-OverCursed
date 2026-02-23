@@ -14,15 +14,15 @@
     data remove storage api: FetchResult
 
 # シャード産でなければ失敗
-    execute if data storage api {Rarity: 0} run return fail
+    execute if data storage api: {Rarity: 0} run return fail
 
 # curse量を計算
     scoreboard players set $Curse Temporary 0
     # rarity
-        execute if data storage api {Rarity: 1} run scoreboard players set $Curse Temporary 1
-        execute if data storage api {Rarity: 2} run scoreboard players set $Curse Temporary 4
-        execute if data storage api {Rarity: 3} run scoreboard players set $Curse Temporary 16
-        execute if data storage api {Rarity: 4} run scoreboard players set $Curse Temporary 64
+        execute if data storage api: {Rarity: 1} run scoreboard players set $Curse Temporary 1
+        execute if data storage api: {Rarity: 2} run scoreboard players set $Curse Temporary 4
+        execute if data storage api: {Rarity: 3} run scoreboard players set $Curse Temporary 16
+        execute if data storage api: {Rarity: 4} run scoreboard players set $Curse Temporary 64
     # if (Args.Cursed) {Curse += Args.CurseValue}
         execute if data storage api: {Cursed: 1b} store result score $CurseValue Temporary run data get storage api: CurseValue 0.5
         scoreboard players operation $Curse Temporary += $CurseValue Temporary
